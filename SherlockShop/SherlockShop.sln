@@ -7,6 +7,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FrontEnd", "FrontEnd", "{E3
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SherlockShop.WEB", "SherlockShop.WEB\SherlockShop.WEB.csproj", "{278522D0-078D-44C9-97A4-30D224EF2956}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{941AD908-1340-4523-BF04-2452C454BB70}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SherlockShop.Services.ProductAPI", "SherlockShop.Services.ProductAPI\SherlockShop.Services.ProductAPI.csproj", "{6BD50687-2CEA-4E10-8F46-9C84B275894F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,12 +21,17 @@ Global
 		{278522D0-078D-44C9-97A4-30D224EF2956}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{278522D0-078D-44C9-97A4-30D224EF2956}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{278522D0-078D-44C9-97A4-30D224EF2956}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6BD50687-2CEA-4E10-8F46-9C84B275894F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6BD50687-2CEA-4E10-8F46-9C84B275894F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6BD50687-2CEA-4E10-8F46-9C84B275894F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6BD50687-2CEA-4E10-8F46-9C84B275894F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{278522D0-078D-44C9-97A4-30D224EF2956} = {E3777657-DE41-4E43-89DD-0EDCCEBCEA8F}
+		{6BD50687-2CEA-4E10-8F46-9C84B275894F} = {941AD908-1340-4523-BF04-2452C454BB70}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3C824DEE-5B8D-43C8-9993-EB10F4DAF85C}
