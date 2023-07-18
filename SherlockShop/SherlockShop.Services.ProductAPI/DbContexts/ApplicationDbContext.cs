@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using SherlockShop.Services.ProductAPI.Models;
 
 namespace SherlockShop.Services.ProductAPI.DbContexts;
 
@@ -8,4 +9,6 @@ public class ApplicationDbContext : DbContext
     {
     
     }
+
+    public DbSet<Product> Products { get; set; }
 }
