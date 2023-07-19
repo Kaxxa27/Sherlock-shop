@@ -1,6 +1,7 @@
 using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using SherlockShop.Services.ProductAPI.DbContexts;
+using SherlockShop.Services.ProductAPI.Repository;
 
 namespace SherlockShop.Services.ProductAPI;
 
@@ -21,6 +22,9 @@ public class Program
 		IMapper mapper = MappingConfig.RegisterMaps().CreateMapper();
 		builder.Services.AddSingleton(mapper);
 		builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
+		//Add Repository
+		builder.Services.AddScoped<IProductRepository, ProductRepository>();
 
 		// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 		builder.Services.AddEndpointsApiExplorer();
