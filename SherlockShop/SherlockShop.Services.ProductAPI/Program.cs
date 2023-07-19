@@ -1,3 +1,4 @@
+using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using SherlockShop.Services.ProductAPI.DbContexts;
 
@@ -14,8 +15,13 @@ public class Program
 			options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 		// Add services to the container.
-
 		builder.Services.AddControllers();
+
+		// Add an Automapper using MappingConfig
+		IMapper mapper = MappingConfig.RegisterMaps().CreateMapper();
+		builder.Services.AddSingleton(mapper);
+		builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
 		// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 		builder.Services.AddEndpointsApiExplorer();
 		builder.Services.AddSwaggerGen();
