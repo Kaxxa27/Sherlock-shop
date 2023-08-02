@@ -11,7 +11,7 @@ using SherlockShop.Services.ProductAPI.DbContexts;
 namespace SherlockShop.Services.ProductAPI.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230718131644_AddProductModelToDb")]
+    [Migration("20230802081223_AddProductModelToDb")]
     partial class AddProductModelToDb
     {
         /// <inheritdoc />
@@ -32,13 +32,17 @@ namespace SherlockShop.Services.ProductAPI.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ProductId"));
 
+                    b.Property<string>("CategoryName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("ImageUrl")
+                    b.Property<byte[]>("Image")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("varbinary(max)");
 
                     b.Property<string>("Name")
                         .IsRequired()
