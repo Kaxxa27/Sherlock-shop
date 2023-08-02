@@ -1,3 +1,6 @@
+using SherlockShop.WEB.Services;
+using SherlockShop.WEB.Services.IServices;
+
 namespace SherlockShop.WEB;
 
 public class Program
@@ -8,6 +11,12 @@ public class Program
 
 		// Add services to the container.
 		builder.Services.AddControllersWithViews();
+
+		// Add httpClient
+		builder.Services.AddHttpClient<IProductService, ProductService>();
+		SD.ProductAPIBase = builder.Configuration["ServiceUrls:ProductAPI"];
+
+		builder.Services.AddScoped<IProductService, ProductService>();
 
 		var app = builder.Build();
 
