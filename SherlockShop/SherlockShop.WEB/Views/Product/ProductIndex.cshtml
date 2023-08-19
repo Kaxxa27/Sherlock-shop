@@ -29,8 +29,8 @@
                     <td>@((item.Price).ToString("C1", CultureInfo.CreateSpecificCulture("en-US")))</td>
                     <td>@item.Description</td>
                     <td>
-                        <a asp-action="EditProduct" class="btn btn-success" asp-route-productId="@item.ProductId">Edit</a>
-                        <a asp-action="DeleteProduct" class="btn btn-danger" asp-route-productId="@item.ProductId">Delete</a>
+                        <a asp-action="ProductEdit" class="btn btn-success" asp-route-productId="@item.ProductId">Edit</a>
+                        <a asp-action="ProductDelete" class="btn btn-danger" asp-route-productId="@item.ProductId">Delete</a>
                     </td>
                 </tr>
             }

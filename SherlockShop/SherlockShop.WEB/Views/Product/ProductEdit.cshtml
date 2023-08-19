@@ -1,7 +1,7 @@
 ﻿@model SherlockShop.WEB.Models.ProductDto
 
-
-<form asp-action="ProductCreate">
+<form asp-action="ProductEdit">
+    <input asp-for="ProductId" hidden/>
     <br />
     <div class="container border p-3">
         <h1 class="text-primary">Create Product</h1>
@@ -56,7 +56,7 @@
             </div>
 
             <div class="col-5">
-                <input type="submit" value="Create" class="btn btn-success form-control" />
+                <input type="submit" value="Update" class="btn btn-success form-control" />
             </div>
 
         </div>
@@ -69,3 +69,4 @@
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
 }
+
