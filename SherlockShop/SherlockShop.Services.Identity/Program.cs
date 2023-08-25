@@ -1,3 +1,8 @@
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using SherlockShop.Services.Identity.DbContexts;
+using SherlockShop.Services.Identity.Models;
+
 namespace SherlockShop.Services.Identity
 {
     public class Program
@@ -12,6 +17,22 @@ namespace SherlockShop.Services.Identity
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+            builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
+                .AddEntityFrameworkStores<ApplicationDbContext>().AddDefaultTokenProviders();
+
+            var builderIdentity = builder.Services.AddIdentityServer(options =>
+            {
+                options.Events.RaiseErrorEvents = true;
+                options.Events.RaiseInformationEvents = true;
+                options.Events.RaiseFailureEvents = true;
+                options.Events.RaiseSuccessEvents = true;
+                options.EmitStaticAudienceClaim = true;
+            }).AddInMemoryIdentityResources(SD.IdentityResources)
+            .AddInMemoryApiScopes(SD.ApiScopes)
+            .AddInMemoryClients(SD.Clients)
+            .AddAspNetIdentity<ApplicationUser>()
+            .AddDeveloperSigningCredential();
+
 
             var app = builder.Build();
 
@@ -27,6 +48,9 @@ namespace SherlockShop.Services.Identity
             app.UseStaticFiles();
 
             app.UseRouting();
+
+            // Add IdentityServer 
+            app.UseIdentityServer();
 
             app.UseAuthorization();
 
